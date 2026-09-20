@@ -1,0 +1,80 @@
+profiles:
+  profile-HW_ESP32_C3_LCDKIT:
+    fqbn: esp32:esp32:esp32c3:UploadSpeed=921600,CDCOnBoot=default,CPUFreq=160,FlashFreq=80,FlashMode=qio,FlashSize=4M,PartitionScheme=min_spiffs,DebugLevel=none,EraseFlash=none,JTAGAdapter=default,ZigbeeMode=default
+    platforms:
+      - platform: esp32:esp32 (3.3.5)
+        platform_index_url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+    libraries:
+      - Adafruit GFX Library (1.12.6)
+      - Adafruit BusIO (1.17.4)
+      - Adafruit GC9A01A (1.1.1)
+      - WiFiManager (2.0.17)
+      - QRCodeGenerator (0.0.1)
+      - Ai Esp32 Rotary Encoder (1.7)
+      - AgileStateMachine (1.0.8)
+      - ArduinoJson (7.4.3)
+      - Json Streaming Parser 2 (2.1.0)
+    programmer: ""
+    port_config:
+      baudrate: "115200"
+      lineEnding: "\r\n"
+      bits: "8"
+      parity: none
+      stop_bits: "1"
+    port: /dev/ttyUSB0
+    build_properties:
+      - compiler.cpp.extra_flags="-DHARDWARE_ID=HW_ESP32_C3_LCDKIT"
+        "-DORIENTATION=SOUTH_UP" "-DFIRMWARE_VERSION=0.1.0 "-DBRANCH_NAME=main"
+  profile-ESP32_2424S012:
+    fqbn: esp32:esp32:esp32c3:UploadSpeed=921600,CDCOnBoot=default,CPUFreq=160,FlashFreq=80,FlashMode=qio,FlashSize=4M,PartitionScheme=min_spiffs,DebugLevel=none,EraseFlash=none,JTAGAdapter=default,ZigbeeMode=default
+    platforms:
+      - platform: esp32:esp32 (3.3.10)
+        platform_index_url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+    libraries:
+      - Adafruit GFX Library (1.12.6)
+      - Adafruit BusIO (1.17.4)
+      - Adafruit GC9A01A (1.1.1)
+      - WiFiManager (2.0.17)
+      - QRCodeGenerator (0.0.1)
+      - Ai Esp32 Rotary Encoder (1.7)
+      - AgileStateMachine (1.0.8)
+      - ArduinoJson (7.4.3)
+      - Json Streaming Parser 2 (2.1.0)
+    programmer: ""
+    port_config:
+      baudrate: "115200"
+      lineEnding: "\r\n"
+      bits: "8"
+      parity: none
+      stop_bits: "1"
+    port: /dev/ttyACM1
+    build_properties:
+      - compiler.cpp.extra_flags="-DHARDWARE_ID=ESP32_2424S012"
+        "-DORIENTATION=SOUTH_UP" "-DFIRMWARE_VERSION=0.1.0 "-DBRANCH_NAME=main"
+  profile-ESP32_2424S012-Serial:
+    fqbn: esp32:esp32:esp32c3:UploadSpeed=921600,CDCOnBoot=cdc,CPUFreq=160,FlashFreq=80,FlashMode=qio,FlashSize=4M,PartitionScheme=min_spiffs,DebugLevel=none,EraseFlash=none,JTAGAdapter=default,ZigbeeMode=default
+    platforms:
+      - platform: esp32:esp32 (3.3.10)
+        platform_index_url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+    libraries:
+      - Adafruit GFX Library (1.12.6)
+      - Adafruit BusIO (1.17.4)
+      - Adafruit GC9A01A (1.1.1)
+      - WiFiManager (2.0.17)
+      - QRCodeGenerator (0.0.1)
+      - Ai Esp32 Rotary Encoder (1.7)
+      - AgileStateMachine (1.0.8)
+      - ArduinoJson (7.4.3)
+      - Json Streaming Parser 2 (2.1.0)
+    programmer: ""
+    port_config:
+      baudrate: "115200"
+      lineEnding: "\r\n"
+      bits: "8"
+      parity: none
+      stop_bits: "1"
+    port: /dev/ttyACM1
+    build_properties:
+      - compiler.cpp.extra_flags="-DHARDWARE_ID=ESP32_2424S012"
+        "-DORIENTATION=SOUTH_UP" "-DFIRMWARE_VERSION=123" "-DBRANCH_NAME=main"
+        "-DDEBUG=1"

@@ -1,0 +1,143 @@
+{
+    "token": "abcdef1234567890",
+    "connect": "http://frienzz.example.com/api/",
+    "type": "home_status",
+    "config": {
+        "status": {
+            "max_seconds": 28800,
+            "refresh_rate_secs": 300,
+            "user_info": {
+                "uuid": "36a50cd5-9c83-419d-a69b-099d3394132e",
+                "username": "support@frienzz.net",
+                "nickname": "Support",
+                "available_time": 28800,
+                "available_type": 3,
+                "local_seconds_of_day": 75600,
+                "public": 0,
+                "info": "Der erste Anwender ...",
+                "description": "Etwas mehr \u00fcber mich",
+                "friendsoffriends": null,
+                "newsletter": null,
+                "foflist": [
+                    {
+                        "title": "Klaus Mustermann",
+                        "value": 1
+                    }
+                ]
+            },
+            "friends": [
+                {
+                    "uuid": "36a50cd5-9c83-419d-a69b-099d3394132e",
+                    "friend_nickname": "der olle support",
+                    "original_friend_nickname": "Support",
+                    "public": 0,
+                    "info": "Der erste Anwender ...",
+                    "available_time": 300,
+                    "available_type": 4,
+                    "friend_groups": 126,
+                    "description": "Etwas mehr \u00fcber mich"
+                },
+                {
+                    "uuid": "36a50cd5-9c83-419d-a69b-099d3394132e",
+                    "friend_nickname": "der olle support",
+                    "original_friend_nickname": "Support",
+                    "public": 0,
+                    "info": "Der erste Anwender ...",
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 126,
+                    "description": "Etwas mehr \u00fcber mich"
+                },
+                {
+                    "uuid": "04369d30-77bb-46b0-b0d7-6b0878b687a4",
+                    "friend_nickname": "Joseph Urhahne ",
+                    "original_friend_nickname": "Joseph",
+                    "public": 0,
+                    "info": "Der Neugierige",
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 126,
+                    "description": null
+                },
+                {
+                    "uuid": "2d3bbe7f-be2c-4b05-a95e-4d25c5059070",
+                    "friend_nickname": "Manni P\u00f6pken",
+                    "original_friend_nickname": "Manfred P\u00f6pken",
+                    "public": 0,
+                    "info": "Schwer besch\u00e4ftigt ",
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 127,
+                    "description": null
+                },
+                {
+                    "uuid": "8ce461ec-2fc7-4c0b-9711-eb9e8c9b4ff1",
+                    "friend_nickname": "Petra",
+                    "original_friend_nickname": "pblohm1",
+                    "public": 0,
+                    "info": null,
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 127,
+                    "description": null
+                },
+                {
+                    "uuid": "be2f5869-2143-4d6f-9d67-770b28c40edc",
+                    "friend_nickname": "Wolfgang Sommer",
+                    "original_friend_nickname": "Wolfgang Sommer",
+                    "public": 0,
+                    "info": "Immer noch Diagnosefuzzi :-)",
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 126,
+                    "description": "Ich arbeite neben meiner Berufung zum Rentener, noch f\u00fcr den ein oder anderen Fordh\u00e4ndler...., da es leider zu wenige Supports und Wolfgangs gibt! \nMir fehlt ein Button"
+                },
+                {
+                    "uuid": "b99b866d-71d5-4595-ae9c-5de433ed6e3a",
+                    "friend_nickname": "dietrich.v.knorre",
+                    "original_friend_nickname": "Dietrich",
+                    "public": 0,
+                    "info": null,
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 126,
+                    "description": null
+                },
+                {
+                    "uuid": "e3987ab5-032a-43c5-a4b2-be7cce07d5ad",
+                    "friend_nickname": "Markus",
+                    "original_friend_nickname": "Markus",
+                    "public": 0,
+                    "info": "Ich bins\u2026",
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 126,
+                    "description": null
+                },
+                {
+                    "uuid": "036e92a1-e0f2-4e6e-bec5-591edf851cb6",
+                    "friend_nickname": "Torsten Renken",
+                    "original_friend_nickname": "TRE",
+                    "public": 0,
+                    "info": "Brath\u00e4hnchen-Fan",
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 126,
+                    "description": "Hallo Text   :)"
+                },
+                {
+                    "uuid": "c4ca56c1-8cf0-40e0-97d8-c82bf12591e4",
+                    "friend_nickname": "frienzz.test",
+                    "original_friend_nickname": "Frienzz",
+                    "public": 0,
+                    "info": "Ein Test- Account",
+                    "available_time": 0,
+                    "available_type": 0,
+                    "friend_groups": 126,
+                    "description": null
+                }
+            ]
+        },
+        "errormessage": ""
+    }
+}

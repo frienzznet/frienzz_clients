@@ -1,0 +1,3 @@
+[submodule "arduino/Frienzz/Frienzz/libraries/cst816d"]
+	path = arduino/Frienzz/Frienzz/libraries/cst816d
+	url = https://github.com/stko/cst816d

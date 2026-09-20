@@ -1,0 +1,35 @@
+---
+repo_path: "/home/steffen/Desktop/workcopies/frienzz_clients"
+work_dir: "/home/steffen/Desktop/workcopies/frienzz_clients/arduino/Frienzz/Frienzz"
+build_target: "/home/steffen/Desktop/workcopies/frienzz_clients/arduino/Frienzz/Frienzz/build/build_profile-%PROFILE%/Frienzz.ino.bin"
+build_image_target_name: "/home/steffen/Desktop/workcopies/frienzz_clients/arduino/Frienzz/Frienzz/build/build_profile-%PROFILE%/Frienzz.ino.merged.bin"
+dist_target_name: "%HARDWARE_ID%.%ORIENTATION%.%BRANCH_NAME%.%FIRMWARE_VERSION%.%DEBUG%.bin"
+dist_image_target_name: "%HARDWARE_ID%.%ORIENTATION%.%BRANCH_NAME%.%FIRMWARE_VERSION%.%DEBUG%.merged.bin"
+compile_command: "/home/steffen/.vscode/extensions/thelastoutpostworkshop.arduino-maker-workshop-1.1.8-linux-x64/arduino_cli/linux/x64/arduino-cli compile --profile profile-%PROFILE% -v --build-property compiler.cpp.extra_flags=\"%FLAGS%\" --jobs 0 --build-path /home/steffen/Desktop/workcopies/frienzz_clients/arduino/Frienzz/Frienzz/build/build_profile-%PROFILE%"
+profiles: 
+    ESP32_2424S012:
+        chipFamily: "ESP32-C3"
+        ORIENTATION: 
+            SOUTH_UP : Touchscreen mit Stecker nach Unten
+            NORTH_UP : Touchscreen mit Stecker nach Oben
+            EAST_UP : Touchscreen mit Stecker nach Rechts
+            WEST_UP : Touchscreen mit Stecker nach Links
+        BRANCH_NAME:
+            main : Hauptzweig
+            # develop : Entwicklungs-Zweig
+        DEBUG: 
+            #- "TRUE"
+            "FALSE" : ohne Debug-Funktionen
+    HW_ESP32_C3_LCDKIT:
+        chipFamily: "ESP32-C3"
+        ORIENTATION: 
+            SOUTH_UP : Drehknopf mit Stecker nach Unten
+            NORTH_UP : Drehknopf mit Stecker nach Oben
+            EAST_UP : Drehknopf mit Stecker nach Rechts
+            WEST_UP : Drehknopf mit Stecker nach Links
+        BRANCH_NAME:
+            main : Hauptzweig
+            #develop : Entwicklungs-Zweig
+        DEBUG: 
+            #- "TRUE"
+            "FALSE" : ohne Debug-Funktionen

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frienzz Display Flasher</title>
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p,
+        label {
+            font:
+                1rem "Fira Sans",
+                sans-serif;
+        }
+
+        input {
+            margin: 0.4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Frienzz Display Flasher</h1>
+    <p>Wähle Dein Hardware-Modell und klicke auf "Installieren".</p>
+    <p>Bei der Frage "Erase Device?" kreuze das Kästchen NICHT an, also nicht das gesamte Gerät löschen.</p>
+    <form>
+        <fieldset id="hardware-selection">
+            <legend>Wähle Dein Hardware-Modell:</legend>
+
+            <!--
+            <div>
+                <input type="radio" id="HW_ESP32_C3_LCDKIT" name="hardware_id" value="HW_ESP32_C3_LCDKIT" />
+                <label for="HW_ESP32_C3_LCDKIT">HW_ESP32_C3_LCDKIT</label>
+            </div>
+            -->
+
+        </fieldset>
+    </form>
+    <pre id="log"></pre>
+
+    <esp-web-install-button id="install-button"></esp-web-install-button>
+
+    <script>
+
+        let allManifests;
+
+        fetch("./allmanifests.json").then((res) =>
+            res.json())
+            .then((data) => {
+                allManifests = data
+                console.log("Fetched all manifests:", allManifests);
+                const selections = document.getElementById("hardware-selection");
+                for (const [key, value] of Object.entries(allManifests)) {
+                    var div = document.createElement("div");
+                    var radio = document.createElement("input");
+                    radio.type = "radio";
+                    radio.id = key;
+                    radio.name = "hardware_id";
+                    radio.value = key;
+                    div.appendChild(radio);
+                    var label = document.createElement("label");
+                    label.htmlFor = key;
+                    label.innerText = value.innerhtml || key;
+                    div.appendChild(label);
+                    selections.appendChild(div);
+                }
+
+            })
+            .catch((error) => console.error('Failed to fetch data:', error));
+
+        const log = document.getElementById('log');
+        const form = document.querySelector('form');
+
+        //form.addEventListener("submit", (event) => {
+        form.addEventListener("change", (event) => {
+            const data = new FormData(form);
+            let output = "";
+            for (const entry of data) {
+                output = `${output}${entry[0]}=${entry[1]}\r`;
+            }
+            log.innerText = output;
+            const hardware_id = data.get("hardware_id");
+            event.preventDefault();
+            if (allManifests != null && allManifests[hardware_id]) {
+                const json = JSON.stringify(allManifests[hardware_id]);
+                const blob = new Blob([json], { type: "application/json" });
+                console.log("Setting manifest for hardware_id=", hardware_id, " to ", json);
+                const installButton = document.getElementById("install-button");
+                console.log("installButton=", installButton);
+                installButton.manifest = URL.createObjectURL(blob);
+            } else {
+                log.innerText = `No manifest found for hardware_id=${hardware_id}`;
+            }
+        });
+        /*
+        const manifest = {
+            "name": "Display Flasher",
+            "version": "2026.04.99",
+            "new_install_prompt_erase": true,
+            "builds": [
+                {
+                    "chipFamily": "ESP32-C3",
+                    "parts": [
+                        {
+                            "path": "ESP32_2424S012-main-119-firmware.bin",
+                            "offset": 0
+                        }
+                    ]
+                }
+            ]
+        }
+
+        const json = JSON.stringify(manifest);
+        const blob = new Blob([json], { type: "application/json" });
+        document.getElementById("install-button").manifest = URL.createObjectURL(blob);
+        */
+
+    </script>
+</body>
+
+</html>

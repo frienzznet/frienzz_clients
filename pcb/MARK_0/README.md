@@ -1,0 +1,6 @@
+# MARK 0 - first Hardware Prototype
+
+kleiner, bezahlbarer China- ESP32 mit rausgeführtem D0 (Boot):
+https://www.sudo.is/docs/esphome/boards/esp32c3supermini/#pinout
+
+Displays : https://www.amazon.de/sspa/click?ie=UTF8&spc=MToxMzcyMDIzNDMxMjAwODE6MTc2NzUzNDkyNzpzcF9hdGY6MzAwMDU3MTUzNTc2NDMyOjowOjo&url=%2FARCELI-SPI-Schnittstelle-LCD-Anzeigemodul-Instrumentenanzeige-Echtzeit%25C3%25BCberwachung%2Fdp%2FB0CFXY1K1T%2Fref%3Dsr_1_4_sspa%3Fadgrpid%3D71294126776%26dib%3DeyJ2IjoiMSJ9.FDUqBG-R7NnssrDb9R1suTtsDUxB7BR-0u3uWO64bP_OeYf46qHGHTz7KltQ6xWJnpov7uAbi7QCPbYcrdqLmO-VB7R0mXEiZYn7TGij39f8qFi4q224Mll_P6joky3LU6_Jd80iSQSqkOAUPNakpLXVtJTls2v9uVq3pAkMeSnvuY4x_MrtrRCGwduZXIfWnDGoHCMWdgz1apew4-iY3hYX0FlCzONqWivZlkD4a83cHEgRl0QjihTebO-3cf7qwfzdRacMrxtwubo8YVSpb2Zrps1vPFL6MlhJys-7z5I.BXpnbrO68nI525a9W68yPVxyyp2x-gXFlP4IWCexy_4%26dib_tag%3Dse%26hvadid%3D676531672255%26hvdev%3Dc%26hvexpln%3D0%26hvlocphy%3D9043667%26hvnetw%3Dg%26hvocijid%3D406798819022221777--%26hvqmt%3De%26hvrand%3D406798819022221777%26hvtargid%3Dkwd-1465012887977%26hydadcr%3D28302_2477850%26keywords%3Dgc9a01%2Bdisplay%26mcid%3D48ecea2fec6c3754af40fe7544b92930%26qid%3D1767534927%26sr%3D8-4-spons%26aref%3DMbbKFhkrWy%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=MbbKFhkrWy&sp_cr=DUB
