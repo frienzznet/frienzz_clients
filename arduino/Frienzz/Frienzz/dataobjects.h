@@ -11,7 +11,7 @@
 #if defined(DEBUG)
 #define DEVICE_PAIRING_URL_PREFIX "http://192.168.1.185:8081/#/deviceadd?d="
 #else
-#define DEVICE_PAIRING_URL_PREFIX "https://frienzz.com/#/deviceadd?d="
+#define DEVICE_PAIRING_URL_PREFIX "https://frienzz.net/#/deviceadd?d="
 #endif
 
 class StyleSetting

@@ -44,7 +44,7 @@ void show_AP_QRCode(WiFiManager *myWiFiManager)
   #if defined(DEBUG)
     qr_drawQRCode("http://192.168.1.185:8081/welcome.html", 4, WEISS);
   #else
-    qr_drawQRCode("https://frienzz.com/welcome.html", 4, WEISS);
+    qr_drawQRCode("https://frienzz.net/welcome.html", 4, WEISS);
   #endif
   while (!uidevice->button_release_event() && millis() - start < 10000) // wait for button press or 10 seconds
     ;

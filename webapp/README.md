@@ -18,7 +18,7 @@ Einem (Pseudo-) Random- Wert aus dem Timestamp 32 Bit = 4 Bytes = 8 Chars (TS)
 
 Der sha256 Hash  (SHA) aus dem Fingerprint,  dem Timestamp und dem Salt: 256 Bits = 32 Bytes = 64 chars
 
-dann noch der URL zum Abruf "https://frienzz.com/#/userpair?d=" = 33 Bytes
+dann noch der URL zum Abruf "https://frienzz.net/#/userpair?d=" = 33 Bytes
 
 Macht zusammen:
 

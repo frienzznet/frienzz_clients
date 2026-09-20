@@ -30,7 +30,7 @@ const int port = 8000;
 WiFiClient client;
 
 #else
-const char *server = "frienzz.com"; // Server URL
+const char *server = "frienzz.net"; // Server URL
 const int port = 443;
 //  const char *server = "www.howsmyssl.com"; // Server URL
 
