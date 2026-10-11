@@ -32,11 +32,11 @@ void configfs_init()
     if (SPIFFS.begin(FORMAT_SPIFFS_IF_FAILED))
     {
         Serial.println("mounted file system");
-        if (SPIFFS.exists("/frienzz.json"))
+        if (SPIFFS.exists("/tadocha.json"))
         {
             // file exists, reading and loading
             Serial.println("reading config file");
-            File configFile = SPIFFS.open("/frienzz.json", "r");
+            File configFile = SPIFFS.open("/tadocha.json", "r");
             if (configFile)
             {
                 Serial.println("opened config file");
@@ -109,7 +109,7 @@ void configfs_save()
     json["watchface_id"] = globalSettings.watchface_id;
     json["watchface_param_id"] = globalSettings.watchface_param_id;
 
-    File configFile = SPIFFS.open("/frienzz.json", "w");
+    File configFile = SPIFFS.open("/tadocha.json", "w");
     if (configFile)
     {
         Serial.println("opened config file for writing");
