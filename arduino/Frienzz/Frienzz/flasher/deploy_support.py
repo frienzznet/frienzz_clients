@@ -1,33 +1,42 @@
+"""
+Program to compile a bunch of different firmware versions
+with arduino-cli.
+controlled by a config file which give the different combinations
+of compiler defines ("-D Flag_xyz)"
+"""
+
 import json
 import subprocess
 import sys
 import os
 import argparse
-from typing import Generator
 import oyaml
 from git import Repo
+from git.exc import GitError
 
 
 class DeploySupport:
-    def __init__(self, args):
-        self.args = args
+    """Class to hold the needed properties and methods"""
+
+    def __init__(self, cli_args):
+        self.cli_args = cli_args
         try:
 
-            with open(self.args.config, "r", encoding="utf-8") as f:
+            with open(self.cli_args.config, "r", encoding="utf-8") as f:
                 self.config = oyaml.load(f, Loader=oyaml.SafeLoader)
 
-        except Exception as e:
+        except (OSError, UnicodeError, oyaml.YAMLError) as e:
             print(f"Error loading config file: {e}")
             sys.exit(1)
         try:
             self.repo = Repo(self.config["repo_path"])
-        except Exception as e:
+        except (GitError, OSError) as e:
             print(f"Error initializing git repository: {e}")
             sys.exit(1)
         if self.repo.working_tree_dir is None:
             print("Error: The specified path is not a valid git repository.")
             sys.exit(1)
-        if self.repo.is_dirty() and not self.args.debug:
+        if self.repo.is_dirty() and not self.cli_args.debug:
             print(
                 "Error: The repository has uncommitted changes. Please commit or stash them before deploying."
             )
@@ -54,8 +63,10 @@ class DeploySupport:
     ):
         """
         Recursively creates a list of all possible combinations of options from a nested dictionary.
-        Each key in the dictionary represents an option, and its value is a list of possible values for that option.
-        If a value is itself a dictionary, the function will recursively process it to generate combinations.
+        Each key in the dictionary represents an option, and its value is a list of possible values
+        for that option.
+        If a value is itself a dictionary, the function will recursively process it to generate
+        combinations.
 
         Args:
             parent_options_dict (dict): A dictionary containing the parent options.
@@ -85,7 +96,8 @@ class DeploySupport:
                 yield parent_options_dict
 
     def replace_placeholders(self, command: str, options: dict) -> str:
-        """Replace placeholders in the command string with actual values from the options dictionary."""
+        """Replace placeholders in the command string with actual values from
+        the options dictionary."""
         for key, value in options.items():
             command = command.replace(f"%{key}%", str(value))
         return command
@@ -150,7 +162,7 @@ class DeploySupport:
                         if os.path.exists(build_target):
                             os.rename(
                                 build_target,
-                                os.path.join(self.args.targetdir, dist_target_name),
+                                os.path.join(self.cli_args.targetdir, dist_target_name),
                             )
                             print(
                                 f"Successfully moved {build_target} to {dist_target_name}"
@@ -170,7 +182,7 @@ class DeploySupport:
                             os.rename(
                                 build_image_target_name,
                                 os.path.join(
-                                    self.args.targetdir, dist_image_target_name
+                                    self.cli_args.targetdir, dist_image_target_name
                                 ),
                             )
                             print(
@@ -185,12 +197,12 @@ class DeploySupport:
 
     def create_manifest_dictionary(self) -> bool:
         """Scans the dist directory for available firmware files and returns a list of them."""
-        if not os.path.exists(self.args.targetdir):
-            print(f"Error: Dist directory {self.args.targetdir} does not exist.")
+        if not os.path.exists(self.cli_args.targetdir):
+            print(f"Error: Dist directory {self.cli_args.targetdir} does not exist.")
             return False
         manifest = {}
-        for f in os.listdir(self.args.targetdir):
-            if os.path.isfile(os.path.join(self.args.targetdir, f)) and f.endswith(
+        for f in os.listdir(self.cli_args.targetdir):
+            if os.path.isfile(os.path.join(self.cli_args.targetdir, f)) and f.endswith(
                 ".bin"
             ):
                 file_name_parts = f.split(".")
@@ -245,7 +257,7 @@ class DeploySupport:
                             ],
                         }
         with open(
-            os.path.join(self.args.targetdir, "allmanifests.json"),
+            os.path.join(self.cli_args.targetdir, "allmanifests.json"),
             "w",
             encoding="utf-8",
         ) as manifest_file:
@@ -277,15 +289,15 @@ if __name__ == "__main__":
         default=False,
         action="store_true",
     )
-    args = parser.parse_args()
+    parsed_args = parser.parse_args()
 
-    deploy_support = DeploySupport(args)
+    deploy_support = DeploySupport(parsed_args)
 
     # Here you would add the logic to deploy the support files to the target device.
     print(deploy_support.config)
     print(f"Commit count: {deploy_support.commit_count}")
     print(f"Branch name: {deploy_support.branch_name}")
-    if args.manifest:
+    if parsed_args.manifest:
         if not deploy_support.create_manifest_dictionary():
             print("Error: Failed to create manifest dictionary.")
             sys.exit(1)
