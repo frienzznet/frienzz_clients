@@ -8,7 +8,7 @@
 #define MAX_NAME_LENGTH 20
 #define MAX_VALUE_LENGTH (256 * 2 + 1) // max length for stored values in data objects (sha256 hex length)
 #define JSON_BUFFER_SIZE (MAX_VALUE_LENGTH + 100)
-#if defined(DEBUG)
+#if defined(DEBUG) && (DEBUG == 1)
 #define DEVICE_PAIRING_URL_PREFIX "http://192.168.1.185:8081/#/deviceadd?d="
 #else
 #define DEVICE_PAIRING_URL_PREFIX "https://frienzz.net/#/deviceadd?d="

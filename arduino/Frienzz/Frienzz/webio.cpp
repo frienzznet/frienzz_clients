@@ -23,7 +23,7 @@ bool suppress_next_webio_loop = false;
 
 char token[MAX_VALUE_LENGTH] = "";
 
-#if defined(DEBUG)
+#if defined(DEBUG) && (DEBUG == 1)
 const char *server = "192.168.1.185"; // Server URL
 const int port = 8000;
 
@@ -95,7 +95,7 @@ bool send_json_rpc(char *json_content)
 
     Serial.println("Setup JSON Streaming Parser.");
     printHeapFreeToSerial();
-#if !defined(DEBUG)
+#if !defined(DEBUG) || (DEBUG == 0)
     // Use WiFiClientSecure class to create TLS connection
 
     // client.setCACert(test_root_ca);
@@ -235,7 +235,7 @@ void check_for_firmware_update()
         Serial.println(firmware_url);
         Serial.println("Starting OTA update...");
 // Start the OTA update
-#if !defined(DEBUG)
+#if !defined(DEBUG) || (DEBUG == 0)
         // client.setCACert(test_root_ca);
         client.setInsecure(); // skip verification for testing only
                               // client.setCertificate(test_client_cert); // for client verification

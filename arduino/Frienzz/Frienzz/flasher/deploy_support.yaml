@@ -18,8 +18,8 @@ profiles:
             main : Hauptzweig
             # develop : Entwicklungs-Zweig
         DEBUG: 
-            #- "TRUE"
-            "FALSE" : ohne Debug-Funktionen
+            #- "1"
+            "0" : ohne Debug-Funktionen
     HW_ESP32_C3_LCDKIT:
         chipFamily: "ESP32-C3"
         ORIENTATION: 
@@ -31,5 +31,5 @@ profiles:
             main : Hauptzweig
             #develop : Entwicklungs-Zweig
         DEBUG: 
-            #- "TRUE"
-            "FALSE" : ohne Debug-Funktionen
+            #- "1"
+            "0" : ohne Debug-Funktionen
