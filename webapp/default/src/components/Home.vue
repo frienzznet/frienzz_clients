@@ -30,6 +30,7 @@
 <script>
 import router from "../router";
 import messenger from "../messenger";
+import { i18n } from "../main.js";
 import dayjs from "dayjs";
 import dayjsPluginUTC from "dayjs-plugin-utc";
 dayjs.extend(dayjsPluginUTC, { parseToLocal: true });
@@ -98,6 +99,7 @@ export default {
 					available_time: 75 * 60,
 					available_type: 1,
 					description: "Beschreibung",
+					language: "de",
 					public: false
 				},
 				friends: [
@@ -203,6 +205,9 @@ export default {
 			if (type == "home_status") {
 				this.status = data.status;
 				console.log("home this.status", this.status);
+				if (this.status.user_info.language && this.status.user_info.language != i18n.locale) {
+					i18n.locale = this.status.user_info.language;
+				}
 				// update player component
 				messenger.handleMessage({ "type": "player_user_info", "config": data.status.user_info });
 				// as this might be a reconnect, we switch the player component off, just in case that it is still open

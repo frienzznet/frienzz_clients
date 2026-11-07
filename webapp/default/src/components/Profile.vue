@@ -6,7 +6,7 @@
       </v-app-bar-nav-icon>
 
       <v-toolbar-title>{{ $t("main_title") }} &#x2022; {{ $t("profile_header") }} {{ user_info.username
-        }}</v-toolbar-title>
+      }}</v-toolbar-title>
     </v-toolbar>
     <!--v-container-->
     <v-card class="mx-auto">
@@ -16,6 +16,9 @@
         <v-text-field maxLength=100 v-model="user_info.info" :label="$t('profile_info_help')"></v-text-field>
         <v-textarea maxLength=600 v-model="user_info.description" :label="$t('profile_description_help')"></v-textarea>
         <v-select :label="$t('profile_newsletter')" v-model="user_info.newsletter" :items="newsletter_items"
+          item-text="title" item-value="index">
+        </v-select>
+        <v-select :label="$t('profile_languages')" v-model="user_info.language" :items="$i18n.availableLocales"
           item-text="title" item-value="index">
         </v-select>
         <v-checkbox v-model="user_info.friendsoffriends" v-bind:id="user_info.uuid"
@@ -67,7 +70,7 @@
             <v-btn color="blue darken-1" text @click="profile_delete_dialog_show = false">{{
               $t("cardmenu_delete_dialog_cancel") }}</v-btn>
             <v-btn color="red darken-1" text @click="user_user_delete()">{{ $t("profile_delete_account_select")
-              }}</v-btn>
+            }}</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>

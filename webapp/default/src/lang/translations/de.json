@@ -72,6 +72,7 @@
 	"profile_notify_inactive": "Benachrichtigungen sind inaktiv",
 	"profile_create_notify": "Benachrichtigungen aktivieren",
 	"profile_remove_notify": "Benachrichtigungen deaktivieren",
+	"profile_languages": "Sprache",
 	"profile_logout": "Von diesem Gerät Abmelden",
 	"profile_min_chars": "Mindestens 5 Zeichen",
 	"profile_name_help": "Wie soll Dein Name in Frienzz sein?",
