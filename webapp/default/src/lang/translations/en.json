@@ -1,6 +1,6 @@
 {
-    "back": "ZUR\u00dcCK",
-    "busy": "SYSTEM BESCH\u00c4FTIGT - VERSUCH'S GLEICH NOCHMAL",
+    "back": "back",
+    "busy": "SYSTEM busy - try again",
     "cardmenu_delete_dialog_cancel": "ABBRUCH",
     "cardmenu_delete_dialog_header_head": "",
     "cardmenu_delete_dialog_header_tail": " AUS DER FREUNDLISTE ENTFERNEN?",
