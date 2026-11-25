@@ -7,5 +7,9 @@ import it from './translations/it'
 import pt from './translations/pt'
 export default {
   de,
-  en
+  en,
+  fr,
+  es,
+  it,
+  pt
 }
